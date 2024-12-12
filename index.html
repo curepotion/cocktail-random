@@ -48,6 +48,7 @@
       flex-wrap: wrap;
       gap: 15px;
       margin: 20px 0;
+      justify-content: center;
     }
 
     .card {
@@ -55,8 +56,8 @@
       border-radius: 15px;
       padding: 20px;
       text-align: center;
-      flex: 1 1 calc(20% - 15px);
-      max-width: calc(20% - 15px);
+      flex: 1 1 calc(33.33% - 15px);
+      max-width: calc(33.33% - 15px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
       color: #fff;
       transition: transform 0.3s ease;
@@ -70,7 +71,7 @@
 
     .card img {
       width: 100%;
-      height: 100px;
+      height: 150px;
       object-fit: cover;
       border-radius: 10px;
       margin-bottom: 10px;
@@ -89,6 +90,21 @@
     .modal-footer {
       border-top: 1px solid #ff758c;
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .card {
+        flex: 1 1 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        flex: 1 1 calc(100% - 15px);
+        max-width: calc(100% - 15px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -96,9 +112,8 @@
     <h1>來喝一杯吧</h1>
     <div>
       <h2>一天一杯酒，幸福長久久</h2>
-         <button id="random-cocktail" class="btn btn-primary">生成隨機雞尾酒</button>
+      <button id="random-cocktail" class="btn btn-primary">生成隨機雞尾酒</button>
       <div id="trending-cocktails" class="row"></div>
-   
     </div>
   </div>
 
@@ -129,10 +144,10 @@
     const trendingCocktails = document.getElementById('trending-cocktails');
     const randomCocktailButton = document.getElementById('random-cocktail');
 
-    // Fetch 10 random cocktails
+    // Fetch up to 30 random cocktails
     const updateTrendingCocktails = () => {
       trendingCocktails.innerHTML = '';
-      const promises = Array.from({ length: 10 }, () =>
+      const promises = Array.from({ length: 30 }, () =>
         fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php').then((response) => response.json())
       );
 
