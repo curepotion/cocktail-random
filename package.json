@@ -1,8 +1,6 @@
 {
   "name": "cocktail-generator",
   "private": true,
-  "sideEffects": false,
-  "homepage": "https://curepotion.github.io/cocktail-random",
   "type": "module",
   "scripts": {
     "build": "react-router build",
