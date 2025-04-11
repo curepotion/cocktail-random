@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocktail Generator</title>
+  <script>
+    // Determine if we're on GitHub Pages or local dev
+    (function() {
+      const isGitHubPages = window.location.hostname !== 'localhost';
+      if (isGitHubPages) {
+        document.write('<base href="/cocktail-random/">');
+      } else {
+        document.write('<base href="/">');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- The React app will be mounted here -->
+</body>
+</html> 
