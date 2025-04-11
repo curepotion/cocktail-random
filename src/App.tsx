@@ -1,10 +1,12 @@
-import { Routes, Route } from 'react-router-dom'
-import Home from './routes/home'
+import React from 'react'
+import Home from './routes/Home'
 
-export default function App() {
+function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <div className="min-h-screen bg-gradient-to-b from-purple-900 to-indigo-900">
+      <Home />
+    </div>
   )
-} 
+}
+
+export default App 

@@ -1,8 +1,10 @@
-import type { Config } from "@react-router/dev/config";
+import type { Config } from "@remix-run/dev/config";
 
 export default {
-  // Config options...
-  // Server-side render by default, to enable SPA mode set this to `false`
-  ssr: false,
-  basename: "/cocktail-random",
+  appDirectory: "app",
+  browserBuildDirectory: "public/build",
+  publicPath: "/build/",
+  serverBuildDirectory: "build",
+  devServerPort: 8002,
+  ignoredRouteFiles: ["**/.*"],
 } satisfies Config;
