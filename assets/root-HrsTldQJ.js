@@ -2,7 +2,7 @@ import{w as n,a as i,j as t,M as c,L as l,S as h,b as d,O as u,i as p}from"./jsx
   // This script runs in the browser to set the correct base path
   (function() {
     const isGitHubPages = window.location.hostname !== 'localhost';
-    const basePath = isGitHubPages ? '/cocktail-random' : '';
+    const basePath = isGitHubPages ? '/cocktail-random' : '/';
     
     // Set a data attribute for JavaScript to reference
     document.documentElement.dataset.basePath = basePath;
