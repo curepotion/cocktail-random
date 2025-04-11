@@ -17,16 +17,20 @@
             l.pathname.slice(0, -1) + decoded + l.hash
         );
       }
-    }(window.location))
-  </script>
-  <script>
-    // Redirect to the homepage
-    const segmentCount = 1; // Adjust based on your repo name
+    }(window.location));
+
+    // Redirect to the homepage with the path in the URL
+    const pathSegmentsToKeep = 1; // Keep "/cocktail-random"
     const l = window.location;
-    const rootPath = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-      l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/';
+
+    // Properly encode the URL to maintain the path after the basename
+    const redirectPath = l.pathname.split('/').slice(pathSegmentsToKeep + 1).join('/');
+    const redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+      '/' + l.pathname.split('/')[1] + '/' + 
+      (redirectPath ? '#/' + redirectPath : '');
     
-    window.location.replace(rootPath);
+    console.log('Redirecting from 404 page to:', redirectUrl);
+    window.location.replace(redirectUrl);
   </script>
 </head>
 <body>
