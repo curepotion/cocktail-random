@@ -33,7 +33,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div data-basename="/cocktail-random">
+          {children}
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
