@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base href="/cocktail-random/">
   <title>Cocktail Generator</title>
+  <!-- Ensure no relative paths start with / -->
+  <script type="module">
+    // Handle base path issues in GitHub Pages
+    (function() {
+      const isGitHubPages = window.location.hostname !== 'localhost';
+      if (isGitHubPages) {
+        // Fix any absolute paths that start with /
+        document.querySelectorAll('link[href^="/"], script[src^="/"], img[src^="/"]').forEach(el => {
+          const attr = el.tagName === 'LINK' ? 'href' : 'src';
+          if (el[attr] && el[attr].startsWith('/') && !el[attr].startsWith('/cocktail-random/')) {
+            el[attr] = '/cocktail-random' + el[attr];
+          }
+        });
+      }
+    })();
+  </script>
 </head>
 <body>
   <div id="root"></div>
